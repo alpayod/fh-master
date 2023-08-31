@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buttons mit Sprachausgabe</title>
+</head>
+<body>
+    <button id="buttonRot" onclick="sprechen('im_wohnzimmer_sind_es_30_grad')" style="background-color: red; padding: 80px; font-size: 50px;">Wohnzimmer</button>
+    <button id="buttonGruen" onclick="sprechen('der_kessel_hast_einen_druck_von_20_bar')" style="background-color: green; padding: 80px; font-size: 50px;">Kessel</button>
+
+    <script>
+        function sprechen(text) {
+            if ('speechSynthesis' in window) {
+                var sprachausgabe = new SpeechSynthesisUtterance(text);
+                speechSynthesis.speak(sprachausgabe);
+            } else {
+                alert('Die Sprachausgabe wird von deinem Browser nicht unterstützt.');
+            }
+        }
+    </script>
+</body>
+</html>
